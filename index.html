@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Detective Party - Bar Detective Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Base resets */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background: #1a1a1a; color: #f5f5f5; line-height: 1.6; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* Buttons */
+    .btn { display: inline-block; padding: 0.75rem 1.5rem; background: #f5c518; color: #1a1a1a; font-weight: 600; border-radius: 4px; transition: opacity 0.3s; }
+    .btn:hover { opacity: 0.8; }
+
+    /* Hero Section */
+    header.hero { background: url('images/hero-bg.jpg') center/cover no-repeat; height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
+    header.hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
+    .hero-content { position: relative; text-align: center; max-width: 800px; padding: 0 1rem; }
+    .hero-content h1 { font-size: 3rem; color: #f5c518; margin-bottom: 1rem; }
+    .hero-content p { font-size: 1.25rem; margin-bottom: 1.5rem; }
+
+    /* Section styling */
+    section { padding: 4rem 1rem; text-align: center; }
+    section#about { background: #262626; }
+    section h2 { font-size: 2rem; color: #f5c518; margin-bottom: 1rem; }
+    section p { max-width: 700px; margin: 0 auto 2rem; }
+
+    /* Gallery */
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1rem; }
+
+    /* Contact */
+    #contact form { max-width: 400px; margin: 1rem auto 2rem; display: grid; gap: 1rem; }
+    #contact label { display: flex; flex-direction: column; text-align: left; font-weight: 500; }
+    #contact input { padding: 0.5rem; border: none; border-radius: 4px; }
+    #contact button { margin-top: 0.5rem; }
+    .contact-info p { margin: 0.5rem 0; }
+
+    /* Footer */
+    footer { padding: 2rem 1rem; text-align: center; font-size: 0.9rem; border-top: 1px solid #333; }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="hero-content">
+      <h1>Detective Party</h1>
+      <p>Where Drinks Meet Detective Work</p>
+      <a href="#contact" class="btn">Join the Mystery</a>
+    </div>
+  </header>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Our Games</h2>
+    <p>Step into the shoes of a detective for an unforgettable night of clues, cocktails, and cold-blooded mysteries. Work with your team to solve puzzles, interrogate suspects, and catch the culprit—all from the comfort of your favorite bar.</p>
+    <img src="images/case-scene.jpg" alt="Detective examining evidence" />
+  </section>
+
+  <!-- Gallery -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery-grid">
+      <img src="images/game1.jpg" alt="Players solving clues" />
+      <img src="images/game2.jpg" alt="Team discussion during the game" />
+      <img src="images/game3.jpg" alt="Detective-themed props" />
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact">
+    <h2>Get in Touch</h2>
+    <p>Sign up for upcoming events or join our mailing list to never miss a clue.</p>
+
+    <!-- Email Collection Form -->
+    <form name="subscribe" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="subscribe" />
+      <label>
+        Your Name
+        <input type="text" name="name" required />
+      </label>
+      <label>
+        Your Email
+        <input type="email" name="email" required />
+      </label>
+      <button type="submit" class="btn">Notify Me</button>
+    </form>
+
+    <!-- Contact Details -->
+    <div class="contact-info">
+      <p>📞 <a href="tel:+1234567890">(123) 456-7890</a></p>
+      <p>📧 <a href="mailto:info@detectiveparty.com">info@detectiveparty.com</a></p>
+      <p>Follow us on social media:<br><a href="#">@DetectivePartyBar</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Detective Party. All Rights Reserved.
+  </footer>
+
+</body>
+</html>
