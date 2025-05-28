@@ -1,107 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Detective Party - Bar Detective Games</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detective Party | Bar Mystery Games</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Special+Elite&family=Open+Sans:wght@300;400&display=swap" rel="stylesheet">
   <style>
-    /* Base resets */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Montserrat', sans-serif; background: #1a1a1a; color: #f5f5f5; line-height: 1.6; }
-    a { text-decoration: none; color: inherit; }
-    img { max-width: 100%; display: block; }
+    /* Reset & base */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family: 'Open Sans', sans-serif; background: #121212; color: #f0f0f0; line-height:1.6; }
+    a { color: #e0b734; text-decoration:none; }
+    img { max-width:100%; display:block; }
+    .container { max-width:1200px; margin:0 auto; padding:0 1rem; }
 
-    /* Buttons */
-    .btn { display: inline-block; padding: 0.75rem 1.5rem; background: #f5c518; color: #1a1a1a; font-weight: 600; border-radius: 4px; transition: opacity 0.3s; }
-    .btn:hover { opacity: 0.8; }
+    /* Hero */
+    header {
+      height: 100vh;
+      background: url('images/hero-bg.jpg') center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    header::after {
+      content:'';
+      position:absolute;
+      inset:0;
+      background:rgba(0,0,0,0.7);
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: #f0e6d2;
+      font-family: 'Special Elite', cursive;
+    }
+    .hero-content h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 3.5rem;
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px #000;
+    }
+    .hero-content p {
+      font-size: 1.2rem;
+      margin-bottom:1.5rem;
+    }
+    .btn {
+      display:inline-block;
+      padding:0.75rem 1.5rem;
+      background:#e0b734;
+      color:#121212;
+      font-weight:600;
+      border-radius:12px;
+      box-shadow:0 4px 6px rgba(0,0,0,0.3);
+      transition:transform .2s;
+    }
+    .btn:hover { transform:scale(1.05); }
 
-    /* Hero Section */
-    header.hero { background: url('images/hero-bg.jpg') center/cover no-repeat; height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; }
-    header.hero::after { content: ''; position: absolute; inset: 0; background: rgba(0,0,0,0.6); }
-    .hero-content { position: relative; text-align: center; max-width: 800px; padding: 0 1rem; }
-    .hero-content h1 { font-size: 3rem; color: #f5c518; margin-bottom: 1rem; }
-    .hero-content p { font-size: 1.25rem; margin-bottom: 1.5rem; }
+    /* Sections */
+    section { padding:4rem 0; }
+    section h2 {
+      font-family:'Cinzel', serif;
+      font-size:2.5rem;
+      text-align:center;
+      margin-bottom:1rem;
+      color:#e0b734;
+    }
+    section p { max-width:800px; margin:0 auto 2rem; text-align:center; }
 
-    /* Section styling */
-    section { padding: 4rem 1rem; text-align: center; }
-    section#about { background: #262626; }
-    section h2 { font-size: 2rem; color: #f5c518; margin-bottom: 1rem; }
-    section p { max-width: 700px; margin: 0 auto 2rem; }
+    /* Features */
+    .features { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; }
+    .feature-card {
+      background:#1e1e1e;
+      padding:1.5rem;
+      border-radius:8px;
+      box-shadow:0 2px 4px rgba(0,0,0,0.5);
+    }
+    .feature-card img { height:60px; margin-bottom:1rem; }
+    .feature-card h3 { font-size:1.25rem; margin-bottom:0.5rem; }
 
     /* Gallery */
-    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 1rem; }
+    .gallery { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:1rem; }
+    .gallery-item { position:relative; overflow:hidden; }
+    .gallery-item img { transition:transform .3s; }
+    .gallery-item:hover img { transform:scale(1.1); }
 
-    /* Contact */
-    #contact form { max-width: 400px; margin: 1rem auto 2rem; display: grid; gap: 1rem; }
-    #contact label { display: flex; flex-direction: column; text-align: left; font-weight: 500; }
-    #contact input { padding: 0.5rem; border: none; border-radius: 4px; }
-    #contact button { margin-top: 0.5rem; }
-    .contact-info p { margin: 0.5rem 0; }
+    /* Contact Form */
+    .contact-form { max-width:500px; margin:0 auto; background:#1e1e1e; padding:2rem; border-radius:8px; box-shadow:0 2px 4px rgba(0,0,0,0.5); }
+    .contact-form label { display:block; margin-bottom:0.5rem; font-weight:600; }
+    .contact-form input, .contact-form textarea {
+      width:100%; padding:0.75rem; border:none; border-radius:4px; margin-bottom:1rem;
+    }
+    .contact-form button { width:100%; }
 
     /* Footer */
-    footer { padding: 2rem 1rem; text-align: center; font-size: 0.9rem; border-top: 1px solid #333; }
+    footer { background:#000; text-align:center; padding:1rem 0; font-size:0.9rem; }
   </style>
 </head>
 <body>
-
   <!-- Hero -->
-  <header class="hero">
+  <header>
     <div class="hero-content">
       <h1>Detective Party</h1>
-      <p>Where Drinks Meet Detective Work</p>
-      <a href="#contact" class="btn">Join the Mystery</a>
+      <p>Unravel the Mystery. Enjoy the Night.</p>
+      <a href="#contact" class="btn">Book Your Case</a>
     </div>
   </header>
 
   <!-- About -->
-  <section id="about">
-    <h2>About Our Games</h2>
-    <p>Step into the shoes of a detective for an unforgettable night of clues, cocktails, and cold-blooded mysteries. Work with your team to solve puzzles, interrogate suspects, and catch the culprit—all from the comfort of your favorite bar.</p>
-    <img src="images/case-scene.jpg" alt="Detective examining evidence" />
+  <section id="about" class="container">
+    <h2>What We Offer</h2>
+    <p>Step into our immersive bar-based detective scenarios. Gather clues, question suspects, and solve the crime—all while enjoying great drinks and company.</p>
+    <div class="features">
+      <div class="feature-card">
+        <img src="images/clue.png" alt="Clue Icon">
+        <h3>Puzzle Solving</h3>
+        <p>Decode riddles and uncover evidence.</p>
+      </div>
+      <div class="feature-card">
+        <img src="images/suspect.png" alt="Suspect Icon">
+        <h3>Interrogations</h3>
+        <p>Grill suspects to find the truth.</p>
+      </div>
+      <div class="feature-card">
+        <img src="images/team.png" alt="Team Icon">
+        <h3>Teamwork</h3>
+        <p>Collaborate with friends or coworkers.</p>
+      </div>
+      <div class="feature-card">
+        <img src="images/prize.png" alt="Prize Icon">
+        <h3>Have Fun</h3>
+        <p>Enjoy the time.</p>
+      </div>
+    </div>
   </section>
 
   <!-- Gallery -->
-  <section id="gallery">
-    <h2>Gallery</h2>
-    <div class="gallery-grid">
-      <img src="images/game1.jpg" alt="Players solving clues" />
-      <img src="images/game2.jpg" alt="Team discussion during the game" />
-      <img src="images/game3.jpg" alt="Detective-themed props" />
+  <section id="gallery" class="container">
+    <h2>Game Moments</h2>
+    <div class="gallery">
+      <div class="gallery-item"><img src="images/game1.jpg" alt="Game Image 1"></div>
+      <div class="gallery-item"><img src="images/game2.jpg" alt="Game Image 2"></div>
+      <div class="gallery-item"><img src="images/game3.jpg" alt="Game Image 3"></div>
+      <div class="gallery-item"><img src="images/game4.jpg" alt="Game Image 4"></div>
     </div>
   </section>
 
   <!-- Contact -->
-  <section id="contact">
+  <section id="contact" class="container">
     <h2>Get in Touch</h2>
-    <p>Sign up for upcoming events or join our mailing list to never miss a clue.</p>
-
-    <!-- Email Collection Form -->
-    <form name="subscribe" method="POST" data-netlify="true">
-      <input type="hidden" name="form-name" value="subscribe" />
-      <label>
-        Your Name
-        <input type="text" name="name" required />
-      </label>
-      <label>
-        Your Email
-        <input type="email" name="email" required />
-      </label>
-      <button type="submit" class="btn">Notify Me</button>
+    <p>Reserve your spot or join our mailing list for exclusive updates.</p>
+    <form class="contact-form" name="contact" method="POST" data-netlify="true">
+      <input type="hidden" name="form-name" value="contact">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required>
+      <label for="email">Email Address</label>
+      <input type="email" id="email" name="email" required>
+      <label for="message">Message or Questions</label>
+      <textarea id="message" name="message" rows="4"></textarea>
+      <button class="btn" type="submit">Send Message</button>
     </form>
-
-    <!-- Contact Details -->
-    <div class="contact-info">
-      <p>📞 <a href="tel:+1234567890">(123) 456-7890</a></p>
-      <p>📧 <a href="mailto:info@detectiveparty.com">info@detectiveparty.com</a></p>
-      <p>Follow us on social media:<br><a href="#">@DetectivePartyBar</a></p>
-    </div>
   </section>
 
   <!-- Footer -->
   <footer>
-    © 2025 Detective Party. All Rights Reserved.
+    <p>&copy; 2025 Detective Party. All rights reserved.</p>
+    <p>Follow us: <a href="#">https://www.instagram.com/detectivepartyusa/</a> | <a href="mailto:detectiveparty25@gmail.com">detectiveparty25@gmail.com</a></p>
   </footer>
-
 </body>
 </html>
